@@ -527,3 +527,16 @@ footer {
   }
 }
 
+/* retour d'erreur formulaire */
+.error {
+  box-shadow: 0px 0px 4px 2px #FF4E60;
+}
+
+.erreurMessage {
+  color: #FF4E60;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  display: block;
+}
