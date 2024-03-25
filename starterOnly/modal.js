@@ -143,8 +143,9 @@ function verifierLocation(locations) {
   } else {
     afficherMessageErreur(locations[0], "");
   }
+  // test - retourne true si un bouton est sélectionné, sinon false
   console.log("Validation de l'emplacement :", boutonRadio);
-  // Retourne true si un bouton est sélectionné, sinon false
+  
   return boutonRadio;
 }
 
@@ -177,6 +178,18 @@ function afficherMessageErreur(champ, message) {
   spanErreurMessage.innerText = message;
 }
 
+// Fonction qui permet d'afficher le message de validation du form
+function afficherMessageConfirmation() {
+  // Modification du contenu de la modale => affiche le message de confirmation
+  const modalBody = document.querySelector(".modal-body");
+  modalBody.innerHTML = `
+    <div class="confirmationMessage">
+      <p>Merci !<br> Votre réservation a été reçue.</p>
+      <button class="btnFermer" onclick="closeModal()">Fermer</button>
+    </div>
+  `;
+}
+
 // Fonction qui permet de valider le formulaire
 function validate() {  
   // Logique de validation du formulaire
@@ -186,28 +199,18 @@ function validate() {
   const quantiteValide = verifierQuantite(quantite);
   const locationValide = verifierLocation(locations);
   const conditionsValide = verifierConditions();
-  const dateDeNaissanceValide = verifierDateDeNaissance(birthday); // Ajout validation pour la date de naissance
+  const dateDeNaissanceValide = verifierDateDeNaissance(birthday);
   
+  // Vérifie si toutes les validations sont reussies
   if (prenomValide && nomValide && emailValide && quantiteValide && locationValide && conditionsValide && dateDeNaissanceValide) {
-      // Envoyer le formulaire si toutes les validations sont correctes    
-      return true;
+    // envoi le formulaire si toutes les validations sont reussies  
+    return true;
   } else {
-      // retour console si la validation est incorrecte
-      console.log("Le formulaire n'est pas valide");
-      return false;
+    // Un retour console si la validation est incorrecte
+    console.log("Le formulaire n'est pas valide");
+    return false;
   }
 }
-
-/*
-// Fonction qui permet d'afficher le message de validation du formulaire
-function afficherConfirmationMessage() {
-  const confirmationMessage = document.createElement('div');
-  confirmationMessage.textContent = "Merci ! Votre réservation a été reçue.";
-  confirmationMessage.classList.add('confirmationMessage');
-  confirmationMessage.style.cssText = "display: flex; align-items: center; justify-content: center; background-color: #232323;";
-  document.body.appendChild(confirmationMessage);
-}
-*/
 
 // Ajout d'un écouteur d'événements sur le formulaire pour écouter le submit
 form.addEventListener("submit", (event) => {
@@ -215,7 +218,9 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     // Appel de la fonction de validation
     if (validate()) {
-      // Si le formulaire est valide, le soumettre
+      // Si le formulaire est valide, affiche en 1er le mess de confirmation
+      afficherMessageConfirmation();
+      // soumet le formulaire
       form.submit();
     }
 });
