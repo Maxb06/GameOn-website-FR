@@ -143,8 +143,6 @@ function verifierLocation(locations) {
   } else {
     afficherMessageErreur(locations[0], "");
   }
-  // test - retourne true si un bouton est sélectionné, sinon false
-  console.log("Validation de l'emplacement :", boutonRadio);
   
   return boutonRadio;
 }
