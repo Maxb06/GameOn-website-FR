@@ -37,10 +37,11 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Fonction qui permet de vérifier si un champ obligatoire est valide
 /** 
-*  @param {string} balise : élément input du formulaire sur lequel on effectue la validation 
-*/ 
+ * Fonction qui permet de vérifier si un champ obligatoire est valide
+ * @param {string} balise : élément input du formulaire sur lequel on effectue la validation
+ * @returns {boolean} True si le champ est valide, False sinon
+  */
 function verifierPrenom(balise) {
   if (balise.value.length >= 2) { // Vérifie si le champ contient au moins 2 caractères
       balise.classList.remove("error");
@@ -56,8 +57,8 @@ function verifierPrenom(balise) {
 /**
  * Fonction qui permet de vérifier si un champ obligatoire est valide
  * @param {string} balise : élément input du formulaire sur lequel on effectue la validation
- * @returns 
- */
+ * @returns {boolean} True si le champ est valide, False sinon
+  */
 function verifierNom(balise) {
   // Vérifie si le champ contient au moins 2 caractères
   if (balise.value.length >= 2) { 
@@ -71,11 +72,12 @@ function verifierNom(balise) {
       return false;
   }
 }
-
-// Fonction qui permet de valider une adresse mail avec une expression régulière 
-/** 
-*  @param {string} balise : élément input du formulaire sur lequel on effectue la validation
-*/
+ 
+/**
+ * Fonction qui permet de valider une adresse mail avec une expression régulière
+ * @param {string} balise : élément input du formulaire sur lequel on effectue la validation
+ * @returns {boolean} True si le champ est valide, False sinon
+  */
 function verifierEmail(balise) {
   let emailRegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
   if (emailRegExp.test(balise.value)) { // Vérifie si l'adresse e-mail est valide
@@ -89,11 +91,11 @@ function verifierEmail(balise) {
   }
 }
 
-// Fonction qui permet de valider et ajouter message d'erreur
 /** 
-*  @param {string} champ : élément input du formulaire sur lequel on effectue la validation
-*/
-// Fonction qui permet de vérifier si la date de naissance est renseignée
+* Fonction qui permet de vérifier si la date de naissance est renseignée
+* @param {string} champ : élément input du formulaire sur lequel on effectue la validation
+* @returns {boolean} True si le champ est valide, False sinon
+ */
 function verifierDateDeNaissance(champ) {
   if (champ.value !== "") { 
     afficherMessageErreur(champ, ""); // Efface le message d'erreur 
@@ -106,12 +108,13 @@ function verifierDateDeNaissance(champ) {
   }
 }
 
-// Fonction qui permet de vérifier si la quantité n'est pas vide
 /** 
-*  @param {string} balise : élément input du formulaire sur lequel on effectue la validation
-*/
+ * Fonction qui permet de vérifier si la quantité n'est pas vide
+ * @param {string} balise : élément input du formulaire sur lequel on effectue la validation
+ * @returns {boolean} True si le champ est valide, False sinon
+ */
 function verifierQuantite(balise) {
-  if (balise.value !== "") { // Vérifie si le champ n'est pas vide  GERER FONCTION AVEC VALEUR NUMERIQUE
+  if (balise.value !== "") { // Vérifie si le champ n'est pas vide
     balise.classList.remove("error");
     afficherMessageErreur(balise, "");
     return true;
@@ -122,10 +125,11 @@ function verifierQuantite(balise) {
   }
 }
 
-// Fonction pour vérifier si au moins un bouton radio est sélectionné
-/** 
-*  @param {string} locations : élément radio du formulaire sur lequel on effectue la validation
-*/
+/**
+ * Fonction pour vérifier si au moins un bouton radio est sélectionné
+ * @param {NodeList} locations - Les éléments radio du formulaire sur lesquels on effectue la validation
+ * @returns {boolean} True si au moins un bouton radio est sélectionné, False sinon
+ */
 function verifierLocation(locations) {
   // Initialise la variable boutonRadio à false
   let boutonRadio = false;
@@ -147,7 +151,10 @@ function verifierLocation(locations) {
   return boutonRadio;
 }
 
-// Fonction de validation pour la case à cocher obligatoire checkbox
+/**
+ * Fonction de validation pour la case à cocher obligatoire Checkbox
+ * @returns {boolean} True si le bouton est coché, False sinon
+ */
 function verifierConditions() {
   const checkbox1 = document.getElementById("checkbox1");
   // Vérifie si le premier bouton est coché
@@ -162,7 +169,12 @@ function verifierConditions() {
   return conditionsValide;
 }
 
-// Fonction qui permet de créer le span qui affichera le message d'erreur sous le champ
+/**
+ * Fonction qui permet de créer le span qui affichera le message d'erreur sous le champ
+ * @param {HTMLElement} champ - L'élément input du formulaire sur lequel le message d'erreur sera affiché
+ * @param {string} message - Le message d'erreur à afficher
+ * @returns {void}
+ */
 function afficherMessageErreur(champ, message) {
   let conteneurChamp = champ.closest(".formData");
   let spanErreurMessage = conteneurChamp.querySelector(".erreurMessage");
@@ -176,7 +188,7 @@ function afficherMessageErreur(champ, message) {
   spanErreurMessage.innerText = message;
 }
 
-// Fonction qui permet d'afficher le message de validation du form
+// Fonction qui permet d'afficher le message de validation du formulaire
 function afficherMessageConfirmation() {
   // Modification du contenu de la modale => affiche le message de confirmation
   const modalBody = document.querySelector(".modal-body");
