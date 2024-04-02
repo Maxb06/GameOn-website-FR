@@ -1,11 +1,19 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+// Gestion de l'événement "DOMContentLoaded" pour rendre le menu de navigation responsive
+document.addEventListener("DOMContentLoaded", function() {
+  // Sélection des éléments nécessaires dans le DOM
+  const icon = document.querySelector(".icon");
+  const topnav = document.getElementById("myTopnav");
+
+  // Ajout de l'écouteur d'événement au clic sur l'icone du menu
+  icon.addEventListener("click", function() {
+    // Ajout/suppression de la classe "responsive" pour que le menu soit responsive
+    if (topnav.classList.contains("responsive")) {
+      topnav.classList.remove("responsive");
+    } else {
+      topnav.classList.add("responsive");
+    }
+  });
+});
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
@@ -29,10 +37,10 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// étape 1 écouter l'evenement au clic
+// écouter l'evenement au clic
 closeBtn.addEventListener("click", closeModal);
 
-// étape 1 fonction qui permet de fermer la modale
+// Fonction qui permet de fermer la modale
 function closeModal() {
   modalbg.style.display = "none";
 }
@@ -195,9 +203,13 @@ function afficherMessageConfirmation() {
   modalBody.innerHTML = `
     <div class="confirmationMessage">
       <p>Merci !<br> Votre réservation a été reçue.</p>
-      <button class="btnFermer" onclick="closeModal()">Fermer</button>
+      <button class="btnFermer">Fermer</button>
     </div>
   `;
+  modalBody.querySelector("button").addEventListener("click", ()=> {
+    //alert("test message")
+    closeModal()
+  })
 }
 
 // Fonction qui permet de valider le formulaire
@@ -216,8 +228,6 @@ function validate() {
     // envoi le formulaire si toutes les validations sont reussies  
     return true;
   } else {
-    // Un retour console si la validation est incorrecte
-    console.log("Le formulaire n'est pas valide");
     return false;
   }
 }
@@ -228,9 +238,9 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     // Appel de la fonction de validation
     if (validate()) {
-      // Si le formulaire est valide, affiche en 1er le mess de confirmation
+      // Si le formulaire est valide, affiche le message de confirmation
       afficherMessageConfirmation();
-      // soumet le formulaire
+      
       form.submit();
     }
 });
