@@ -33,9 +33,7 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
-  /*
-  margin : 53px 0 84px 0;
-  padding: 0 54px 0 100px;*/
+  margin-right: 0px;
 }
 
 .header-logo {
@@ -87,28 +85,36 @@ img {
 .topnav .icon {
   display: none;
 }
-/*
+
 @media screen and (max-width: 768px) {
+  header {                                        
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    z-index: 9999;
+  }
+
   .topnav {
-    margin : 33px 0 20px 0;
+    margin : 30px 0 20px 0;
     padding: 0 30px; 
   }
 }
-*/
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
-    /*
     background-color: #ffffff;
     color: #ff001b;
-    margin-right: 0;*/
+    margin-right: 0;
   }
 
   .main-navbar {
-    display: flex;
-    flex-direction: row;
+    background-color: #FFFFFF;
   }
 
   .main-navbar span {
@@ -137,7 +143,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: -5px;
   }
 } 
 
@@ -148,28 +154,10 @@ main {
   padding-top: 0.5vw;
   padding-left: 2vw;
   padding-right: 2vw;
-  margin: 1px 20px 15px;
-  /*
-  padding-left: 100px;
-  padding-right: 100px;*/ 
+  margin: 1px 20px 15px; 
   border-radius: 2rem;
   text-align: justify;
 }
-
-@media screen and (max-width: 768px) {
-  .mobileScreen {
-    margin-bottom: 0;
-  }
-}
-
-/*
-@media screen and (max-width: 768px) {
-  .mobileScreen {
-    padding-left: 30px;
-    padding-right: 30px;
-    width: 100%;
-  }
-}*/
 
 .modal-btn {
   font-size: 145%;
@@ -219,9 +207,15 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {  
+  main {
+    position: relative;
+    top: 80px;                                     
+  }
+  
   .bground {
-    background-color: transparent;
+    background-color: #ffffff;                          
+    top: 70px;
   }
 }
 
@@ -552,7 +546,7 @@ input {
   color: #fe142f;
   padding: 0;
   font-size: 1rem;
-  margin: 99px 0 63px;
+  margin: 60px 0 30px;
   font-weight: bolder;
 }
 
@@ -561,24 +555,41 @@ input {
 }
 
 footer {
-  /*padding-left: 40px;*/
- /* padding-left: 2vw; */
   padding-right: 2vw;
   margin: 0 20px;
 }
 
 @media screen and (max-width: 800px) {
+  .modal-body {
+    padding: 0 6%;
+    height: 805px;
+  }
+
+  .text-label {
+    margin-top: 2px;
+    font-size: 14px;
+  }
+
+  label {
+  font-size: 13px;
+  margin-bottom: 5px;
+  }
+
+  .checkbox-label {
+    margin-left: 30px;
+  }
+
   .hero-section {
     display: block;
     box-shadow: unset;
     margin-bottom: 0;
+    min-height: 80vh;
   }
 
   .hero-content {
     background: #fff;
     color: #000;
-    /*padding: 0;*/
-    padding: 20px;
+    padding: 0;
   }
 
   .hero-content::after {
@@ -592,49 +603,58 @@ footer {
   .hero-headline {
     font-size: 40px;
     white-space: normal;
-    /*width: 85.51vw;*/
+    width: 83.58vw;
   }
 
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
-    /*width: 83.58vw;
-    font-size: 0.85rem;*/  
-    /*font-weight: 500;
-    margin-top: 30px;*/
+    width: 83.58vw;
+    font-size: 0.85rem; 
+    font-weight: 500;
+    margin-top: 15px;
   }
 
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 35px;
   }
 
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
-    padding: 12px 35px;
-    /*padding: 10px 40px;
+    padding: 10px 40px;
     font-size: 14px;
     font-style: normal;
-    font-weight: 500;*/
+    font-weight: 500;
   }
 
   footer {
-    padding-right: 0;
+    padding-right: 0;       
+    position: relative;
+    top: 50px;
+    left: 0;
   }
 
   .copyrights {
-    margin-top: 29px;
-    margin-bottom: 30px;
-    text-align: center;
-    /*
-    margin-top: 50px;
-    margin-bottom: 30px;
-    margin-left: 25px;
+    margin: 30px 0 20px 15px;
     text-align: center;
     font-family: 'Roboto';
     font-size: 12px;
-    font-weight: 600;*/
+    font-weight: 600;
+  }
+
+  .btn-submit {
+    padding: 10px 50px;
+    margin-top: 7px;
+  }
+
+  .btnFermer {
+    bottom: 35% !important;
+  }
+
+  .confirmationMessage p {
+    position: absolute;
+    top: 30%;
   }
 }
 
@@ -672,7 +692,7 @@ footer {
 }
 
 .confirmationMessage p {
-  width: 75%;
+  width: 76%;
   font-weight: 400;
   font-size: 36px;
 }

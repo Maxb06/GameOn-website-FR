@@ -170,7 +170,7 @@ function verifierConditions() {
   const conditionsValide = premierBoutonCoche;
 
   if (!conditionsValide) {
-    afficherMessageErreur(checkbox1, "Vous devez vérifier que vous acceptez les termes et conditions.");
+    afficherMessageErreur(checkbox1, "Vous devez accepter les termes et conditions.");
   } else {
     afficherMessageErreur(checkbox1, "");
   }
@@ -202,7 +202,7 @@ function afficherMessageConfirmation() {
   const modalBody = document.querySelector(".modal-body");
   modalBody.innerHTML = `
     <div class="confirmationMessage">
-      <p>Merci !<br> Votre réservation a été reçue.</p>
+      <p>Merci pour votre inscription</p>
       <button class="btnFermer">Fermer</button>
     </div>
   `;
