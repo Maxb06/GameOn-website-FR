@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1440px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -111,10 +111,15 @@ img {
     background-color: #ffffff;
     color: #ff001b;
     margin-right: 0;
+    position: absolute;
+    top: 25px;
+    right: 10px;
   }
 
   .main-navbar {
     background-color: #FFFFFF;
+    margin-right: 17px;
+    margin-top: -5px;
   }
 
   .main-navbar span {
@@ -127,8 +132,8 @@ img {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: -5px;
   }
 
   .topnav.responsive a {
@@ -142,8 +147,8 @@ img {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
-    display: block;
-    margin-top: -5px;
+    position: absolute;
+    right: 10px;
   }
 } 
 

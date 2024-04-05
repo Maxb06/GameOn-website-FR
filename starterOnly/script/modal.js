@@ -1,4 +1,4 @@
-// Gestion de l'événement "DOMContentLoaded" pour rendre le menu de navigation responsive
+// Gestion de l'événement "DOMContentLoaded" pour rendre le menu de navigation responsive / function editNav() / retrait du HTML gestion par JS
 document.addEventListener("DOMContentLoaded", function() {
   // Sélection des éléments nécessaires dans le DOM
   const icon = document.querySelector(".icon");
@@ -207,12 +207,11 @@ function afficherMessageConfirmation() {
     </div>
   `;
   modalBody.querySelector("button").addEventListener("click", ()=> {
-    //alert("test message")
     closeModal()
   })
 }
 
-// Fonction qui permet de valider le formulaire
+// Fonction qui permet de valider le formulaire /retrait du HTML pour gestion par JS
 function validate() {  
   // Logique de validation du formulaire
   const prenomValide = verifierPrenom(prenom);
