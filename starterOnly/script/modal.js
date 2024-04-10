@@ -1,4 +1,3 @@
-// Gestion de l'événement "DOMContentLoaded" pour rendre le menu de navigation responsive / function editNav() / retrait du HTML gestion par JS
 document.addEventListener("DOMContentLoaded", function() {
   // Sélection des éléments nécessaires dans le DOM
   const icon = document.querySelector(".icon");
@@ -53,6 +52,7 @@ function closeModal() {
 function verifierPrenom(balise) {
   if (balise.value.length >= 2) { // Vérifie si le champ contient au moins 2 caractères
       balise.classList.remove("error");
+      // Si le champ est valide, efface le message d'erreur
       afficherMessageErreur(balise, "");
       return true;
   } else {
@@ -68,10 +68,8 @@ function verifierPrenom(balise) {
  * @returns {boolean} True si le champ est valide, False sinon
   */
 function verifierNom(balise) {
-  // Vérifie si le champ contient au moins 2 caractères
   if (balise.value.length >= 2) { 
       balise.classList.remove("error");
-      // Si le champ est valide, efface le message d'erreur
       afficherMessageErreur(balise, "");
       return true;
   } else {
@@ -106,7 +104,7 @@ function verifierEmail(balise) {
  */
 function verifierDateDeNaissance(champ) {
   if (champ.value !== "") { 
-    afficherMessageErreur(champ, ""); // Efface le message d'erreur 
+    afficherMessageErreur(champ, ""); 
     champ.classList.remove("error");  
     return true;   
   } else {
@@ -186,7 +184,7 @@ function verifierConditions() {
 function afficherMessageErreur(champ, message) {
   let conteneurChamp = champ.closest(".formData");
   let spanErreurMessage = conteneurChamp.querySelector(".erreurMessage");
-  // Créez l'élément span
+  // Créer l'élément span
   if (!spanErreurMessage) {
       spanErreurMessage = document.createElement("span");
       spanErreurMessage.classList.add("erreurMessage");
@@ -211,7 +209,7 @@ function afficherMessageConfirmation() {
   })
 }
 
-// Fonction qui permet de valider le formulaire /retrait du HTML pour gestion par JS
+// Fonction qui permet de valider le formulaire
 function validate() {  
   // Logique de validation du formulaire
   const prenomValide = verifierPrenom(prenom);
